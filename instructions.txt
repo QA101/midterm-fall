@@ -1,0 +1,30 @@
+Mid-term:
+Program Requirements
+* Must be able to execute from command line
+* Takes 2 inputs, inputfilename outputfilename
+* The program should read the input file for lines of expressions
+* The program should only handle positive whole numbers
+* The program should output the correct calculations (no order of operations). So, you can't simply try to use a function to calculate a string
+* Do not modify the ReadLine() method. It uses regular expression which can be difficult to debug. I will not help debug regular expressions.
+
+Handling failures:
+if an expression can't be calculated correctly, due to exceptions or incorrect formatting, you should print error to the output file for that line.
+if you receive the incorrect number of arguments, then you should print an error message to the console then exit
+
+Test Requirements
+* Must write test cases for Calculate() method. Should cover simple cases first, then more complex cases
+* Must include 1 E2E test which takes an input file, calculates, then writes to the output file
+
+How your program will be tested:
+* Visual inspection
+* I'll feed it input files and validate the output against my output files
+
+Hints
+* The code will not compile. Try to get it to compile first, then work towards fixing errors.
+* Not everything in the provided files are correct. There is incorrect logic in multiple places
+* Not all exceptions are handled correctly
+* Consider characters when writing your programs
+* Lever week6 but be careful because the programs don't behave the same
+* if you get stuck, try to write your own from scratch. If that fails, reach out.
+* Remember this program does not read input from the user but uses files. Do not use System.in
+
