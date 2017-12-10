@@ -1,0 +1,28 @@
+BONUS TASKS:
+
+1. Write a program for Pascal Triangle of 11 rows high with the sum of all elements in the row to be printed at the end:
+1 - sum=1
+11 - sum=2
+121 - sum=4
+1331 - sum=8
+etc
+
+Please make comments on what each line of code is doing. 
+
+
+2. Write a program for Fibonacci Series of 12 elements long with the sum of all elements printed at the end.
+
+Please make comments on what each line of code is doing. 
+
+
+3. Write a program to check if two arrays are equal or not
+
+Input  : arr1[] = {1, 2, 5, 4, 0, 2, 1};
+         arr2[] = {2, 4, 5, 0, 1, 1, 2}; 
+Output : Yes
+ 
+Input : arr1[] = {1, 7, 1};
+        arr2[] = {7, 7, 1};
+Output : No
+
+Please make comments on what each line of code is doing. 
