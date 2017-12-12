@@ -11,7 +11,7 @@ public class IOCalculator {
 	FileWriter writer;
 	PrintWriter pw;
 	
-	public static void main(String[] args)  {
+	public static void main(String[] args) throws IOException  {
 		IOCalculator ui = new IOCalculator(args[0], args[1]);
 		ui.ProcessFile();
 		ui.pw.close();
@@ -20,29 +20,38 @@ public class IOCalculator {
 
 	public IOCalculator(String inputfilename, String outputfilename) throws IOException{
 		f = new File(inputfilename);
-				input = new Scanner(inputfilename);
-			writer = new FileWriter(outputfilename, true);
-						pw = new PrintWriter(writer);
+	    input = new Scanner(f);
+		writer = new FileWriter(outputfilename, true);
+		pw = new PrintWriter(writer);
 	}
 	
 	public void ProcessFile() {
-		while(input.hasNext()) {
-			int curr = 0;
+		while(input.hasNextLine()) {
+			double curr = 0;
 			String[] line = ReadLine();
-			for(int i = 0; i< line.length-1; i++) {
+			Boolean found_error = false;
+			for(int i = 0; i< line.length-1; i+=3) {
 				try {
-					if(i ==0 ) {
-						curr = Calculate(Integer.parseInt(line[i]), Integer.parseInt(line[i+2]), line[i+1].trim());
+					if(i == 0 ) {
+						curr = Calculate(Double.parseDouble(line[i]), Double.parseDouble(line[i+2]), line[i+1].trim());
 					}
 					else {
-						curr = Calculate(curr, Integer.parseInt(line[i+1]), line[i].trim());
+						curr = Calculate(curr, Double.parseDouble(line[i+1]), line[i].trim());
+					}
+					if(i>=3) {
+						i-=1;
 					}
 				}
 				catch(Exception e) {
-					System.out.println("error");
+					pw.println("error");
+					found_error = true;
+					break;
 				}
 			}
-			pw.println(curr);
+			if(!found_error) {
+				pw.println(curr);
+			}
+
 		}
 	}
 	
@@ -52,20 +61,22 @@ public class IOCalculator {
 		return line.split("(?<=\\d)(?=\\D)|(?<=\\D)(?=\\d)");
 	}
 	
-	public int Calculate(int first, int second, String operator){
+	public double Calculate(double first, double second, String operator) throws Exception{
 		switch(operator) {
 			case "+":
 				return first + second;
 			case "/":
-return first / second;
+				return first / second;
 			case "-":
 				return first - second;
 			case "*":
-											return first * second;
-			case "^":
 				return first * second;
+			case "^":
+				return Math.pow(first, second);
+			default:
+				throw new Exception();
 		}
-		return 0;
+		
 	}
 
 }

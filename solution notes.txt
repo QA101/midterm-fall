@@ -1,0 +1,22 @@
+Solution
+
+Main
+Line 15: needs a try/catch
+Line 18: needs a try/catch
+
+IOCalculator(String inputfilename, String outputfilename)
+tabbing was completely wrong
+line 23: passing a string into a Scanner instead of the file.
+
+ProcessFile()
+Line 30: change curr from int to double
+line 35: need to cast as double(or cast else where)
+line 38: need to case as double
+Need to handle consuming 2 inputs then handling the rest of the inputs
+
+Calculate(double first, double second, String operator)
+line 55: need to take input of doubles, not int
+line 55: need to return double
+spacing was incorrect
+line 66: need to use Math.pow()
+line 71: Need a default to throw an exception
