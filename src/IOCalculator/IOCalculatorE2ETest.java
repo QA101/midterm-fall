@@ -22,6 +22,10 @@ public class IOCalculatorE2ETest {
 
 	@Test
 	public void E2ETest() throws IOException {
+		File f = new File("output.txt");
+		if(f.exists()) {
+			f.delete();
+		}
 		ui.ProcessFile();
 		ui.pw.close();
 		ui.writer.close();
